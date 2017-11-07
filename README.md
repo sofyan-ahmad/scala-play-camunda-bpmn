@@ -1,8 +1,7 @@
-[<img src="https://img.shields.io/travis/playframework/play-scala-starter-example.svg"/>](https://travis-ci.org/playframework/play-scala-starter-example)
 
-# play-scala-starter-example
+# scala-play-camunda-bpmn
 
-This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
+This is a starter application that shows how to use Camunda BPMN on Scala Play.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
 
 ## Running
 
