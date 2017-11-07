@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:tns="http://bpmn.io/schema/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="Definitions_1" name="" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
+  <bpmn:process id="approve-loan" name="Loan Approval Updated" processType="None" isClosed="false" isExecutable="true">
+    <bpmn:extensionElements>
+      <camunda:properties>
+        <camunda:property name="loanAmount" />
+      </camunda:properties>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1" name="Loan Request Received" />
+    <bpmn:sequenceFlow id="SequenceFlow_0c4zr6d" sourceRef="StartEvent_1" targetRef="UserTask_11fud4o" />
+    <bpmn:userTask id="UserTask_11fud4o" name="Approve Loan" camunda:assignee="john" activiti:exclusive="true">
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_105oy6a">
+        <bpmn:targetRef>loanApprovalDS</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1i5bz86" name="Loan Request Approved" />
+    <bpmn:sequenceFlow id="SequenceFlow_1y4c0rn" sourceRef="UserTask_11fud4o" targetRef="EndEvent_1i5bz86" />
+    <bpmn:dataStoreReference id="loanApprovalDS" name="Loan Approval DS" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram-_1" name="New Diagram" documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0">
+    <bpmndi:BPMNPlane bpmnElement="approve-loan">
+      <bpmndi:BPMNShape id="Shape-StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds x="95" y="140" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="32" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-UserTask_11fud4o" bpmnElement="UserTask_11fud4o">
+        <dc:Bounds x="215" y="55" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="100" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-EndEvent_1i5bz86" bpmnElement="EndEvent_1i5bz86">
+        <dc:Bounds x="415" y="130" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="32" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1y4c0rn" bpmnElement="SequenceFlow_1y4c0rn" sourceElement="UserTask_11fud4o" targetElement="EndEvent_1i5bz86">
+        <di:waypoint xsi:type="dc:Point" x="315" y="95" />
+        <di:waypoint xsi:type="dc:Point" x="415" y="146" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="369" y="110" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_0c4zr6d" bpmnElement="SequenceFlow_0c4zr6d" sourceElement="StartEvent_1" targetElement="UserTask_11fud4o">
+        <di:waypoint xsi:type="dc:Point" x="127" y="156" />
+        <di:waypoint xsi:type="dc:Point" x="215" y="95" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="198.5" y="110" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="DataStoreReference_15u5ist_di" bpmnElement="loanApprovalDS">
+        <dc:Bounds x="339" y="255" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="320" y="308" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_105oy6a_di" bpmnElement="DataOutputAssociation_105oy6a">
+        <di:waypoint xsi:type="dc:Point" x="284" y="135" />
+        <di:waypoint xsi:type="dc:Point" x="342" y="255" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
